@@ -3,23 +3,50 @@
     <head>
         <title>Etch a Sketch</title>
         <link rel="stylesheet" href="style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     </head>
     <body>
         <h1>Etch a Sketch</h1>
+        <button id="new-canvas">New Canvas</button>
         <div class="container"></div> 
         <script>
             const container = document.querySelector('.container');
-            for (let i = 0; i < 16; i++){
-                let div = document.createElement('div');
-                div.classList.add("square");
-                container.appendChild(div);
+            function randomNum(num) {
+                return Math.floor(Math.random()*num);
             }
-            allDivs = container.querySelectorAll('div');
+            function randomColor(){
+                let r = randomNum(255);
+                let g = randomNum(255);
+                let b = randomNum(255);
+                return "rgb(" + r + "," + g + "," + b + ")";
+            }
+
+            function createCanvas(noSq = 16){
+                for (let i = 0; i < noSq; i++){
+                    let div = document.createElement('div');
+                    div.classList.add("square");
+                    div.style.height = (960/(Math.sqrt(noSq))+"px");
+                    div.style.width = (960/(Math.sqrt(noSq))+"px");
+                    div.classlist
+                    container.appendChild(div);
+                }
+                const allDivs = container.querySelectorAll('div');
             allDivs.forEach(div => {
                 div.addEventListener("mouseenter", () => {
-                    div.style.backgroundColor= 'blue';
+                    div.style.backgroundColor= randomColor();
                 })
             })
+             }
+            createCanvas(16);
+            const resetButton = document.querySelector('#new-canvas');
+            resetButton.addEventListener("click", (e) => {
+                container.innerHTML='';
+                let usrSq = prompt("please enter a square number for a new canvas:", "16");
+                usrSq = parseInt(usrSq,10);
+                createCanvas(usrSq);
+            })
+            
         </script> 
     </body>
 </html>

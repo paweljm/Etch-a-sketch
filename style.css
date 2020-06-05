@@ -1,15 +1,15 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    border: 2px solid black;
-    width: 40vw;
-    height: 40vw;
+    display: flex;
+    border: 20px solid white;
+    border-radius: 10px;
+    width: 960px;
+    height: 960px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: hidden;
 }
 .square {
-    width: 10vw;
-    height: 10vw;
-    background-color: pink;
+    background-color: rgb(255, 222, 228);
     border: 1px solid black;
     box-sizing: border-box;
 }
@@ -17,4 +17,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: lightblue;
+}
+h1 {
+    font-family: 'Sriracha', cursive;
+    font-size: 4rem;
+    border-bottom: white 10px solid;
+    border-radius: 10px;
+}
+button {
+    width: 300px;
+    height: 50px;
+    margin-bottom: 25px;
+    background-color: white;
+    font-family: 'Sriracha', cursive;
+    padding-bottom: 55px;;
+    font-size: 2rem;
+    border: 2px lightgreen solid;
+    border-radius: 10px;
 }
